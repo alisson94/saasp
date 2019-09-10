@@ -1,0 +1,296 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../fontello/fontello-icons/font/fontello.eot?75821287');
+  src: url('../fontello/fontello-icons/font/fontello.eot?75821287#iefix') format('embedded-opentype'),
+       url('../fontello/fontello-icons/font/fontello.woff2?75821287') format('woff2'),
+       url('../fontello/fontello-icons/font/fontello.woff?75821287') format('woff'),
+       url('../fontello/fontello-icons/font/fontello.ttf?75821287') format('truetype'),
+       url('../fontello/fontello-icons/font/fontello.svg?75821287#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Form */
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 300px;
+  margin: 0 auto 50px;
+  padding: 35px;
+  border-radius: 3px;
+  text-align: center;
+  top: 20px;
+  box-shadow: 2px 2px 15px #777;
+}
+
+.form .relato{
+    padding: 19px;
+/*    box-shadow: 2px 2px 15px #777;*/
+    margin-bottom: 15px;
+    border-bottom: solid rgba(0, 0, 0,.2) 2.2px;
+}
+
+#tabela{
+	position: relative;
+  width: 100%;
+}
+
+#tabela figure{
+    height: 200px; 
+    width: 280px;
+    margin-bottom: 8px;
+    transition: all .3s;
+    overflow: hidden;
+}
+
+#tabela img{
+	border-radius: 6px;
+}
+
+
+.form .relato figure:hover{
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, .4);
+}
+
+.form .relato figure img{
+    max-height: 100%; 
+    max-width: 100%;
+}
+
+.form p.title{
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: #031703;
+}
+
+.form .thumbnail img {
+  display: block;
+  width: 100%;
+  position: relative;
+  top: -15px;
+}
+
+.form select{
+  outline: 0;
+  background: rgb(220,220,220);
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: all .3s;
+}
+
+ .form select:hover{
+  transform: scale(1.05);  
+  box-shadow: 2px 2px 10px #777;
+}
+
+/*.form select:focus{
+  
+  transform: scale(1.05);
+  box-shadow: 2px 2px 10px #777;
+}*/
+
+
+.form input {
+  outline: 0;
+  background: rgb(220,220,220);
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: all .3s;
+}
+
+.form input:hover{
+  transform: scale(1.05);  
+  box-shadow: 2px 2px 10px #777;
+}
+
+.form input:focus{
+  
+  transform: scale(1.05);
+  box-shadow: 2px 2px 10px #777;
+}
+
+.form input.submit{
+  background: rgb(0,82,62);
+  color: #FFFFFF;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin: 0px;
+}
+
+.form input.submit:hover{
+    transform: scale(1);
+    box-shadow: 0px 0px 0px;
+    transition: 1.5s;
+    background-color: rgb(0, 125,95);
+}
+
+.form input.submit:focus{
+    transform: scale(1);
+    box-shadow: 0px 0px 0px;
+}
+
+.form button {
+  outline: 0;
+  background: rgb(0,82,62);
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form button a {
+  text-decoration: none;
+  color: white;
+}
+
+.form button:hover {
+  transition: 1.5s;
+  background-color: rgb(0, 125,95);
+
+}
+
+.form #btncad {
+  position: relative;
+  top: 30px;
+}
+
+.form #btnlog {
+  position: relative;
+  top: 20px;
+}
+
+.form #icons{
+    position: relative;
+    top: 70px;
+    font-family: 'fontello';
+    font-size: 30px;
+}
+
+.form #icons p{
+    margin: auto 30px auto 30px;
+    color: #333;
+    display: inline-block;
+    transition: all ease .5s;
+}
+.form #icons p#face:hover{
+    color: #3b5998;
+}
+.form #icons p#twi:hover{
+    color: #00aced;
+}
+.form #icons p#ins:hover{
+    color:#517fa4;
+}
+
+.form #icons label {
+    font-family: 'roboto';
+    font-size: 15px;
+    position: absolute;
+    top: 40px;
+    left: 100px;
+    color: #b3b3b3;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #0c6036;
+  text-decoration: none;
+}
+
+
+body {
+  font-family: "Arial", sans-serif;
+  background: #e6e6e6;
+  background-repeat: no-repeat;
+   margin: 0;
+}
+
+
+.form p#login {
+    top: -48px;
+    position: relative;
+    font-size: 25px;
+    color: #031703;
+}
+
+.form .login-form {
+	position: relative;
+	top: -65px;
+}
+.form .register-form {
+  position: relative;
+  top: -65px;
+}
+
+  .table {
+    max-width: 100%;
+    display: block;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px #777;
+  }
+
+  .table tr{
+    right: 0px;
+  }
+
+  .table tr td p{
+  	position: relative;
+  	top: -200px;
+  	left: 300px;
+    font-family: Arial;
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  .table tr td figure img{
+  	max-width: 100%;
+  	max-height: 100%;
+  }
+
+  .table th,
+  .table td {
+    font-size: 12px;
+    padding: 8px;
+    line-height: 20px;
+    right: 0px;
+    
+  }
+
+  .table td:last-child {
+     border-right: 0;
+  }
+
+@media (max-width: 267px) { 
+
+
+
+ 
