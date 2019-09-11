@@ -289,6 +289,16 @@ body {
      border-right: 0;
   }
 
+  .logo{
+    height: 100%;
+    margin-left: 3%;
+  }
+
+  #title{
+    font-size: 200%;
+    margin-left: 8%;
+}
+
 @media (max-width: 267px) { 
 
 

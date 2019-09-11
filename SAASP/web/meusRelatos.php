@@ -6,40 +6,42 @@
 <html>
     <head>
         <meta charset='utf-8'>
+        <title>SAASP - System &copy; </title>
         <link rel="stylesheet" href="../css/menu.css">
         <link rel="stylesheet" href="../css/estilo.css">
+        <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
         <script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
         <script src="../js/menu.js"></script>
-        <title>SAASP - System &copy; </title>
+        <script type="text/javascript" src="../js/materialize.min.js"></script>
+        
         <link rel="icon" type="imagem/png" href="../img/icon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="viewport" content="width=device-width, user-scalable=no">   
         <meta name="viewport" content="width=500, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         
     </head>
     <body>
-        <div id='cssmenu'>
-            <ul>
-                <li><a href='index.php' onmo> &#xe802; Home</a></li>
-               <li class="active"><a href='relatarProblemas.php'>&#xe800; Relatar Problemas</a>
-                  <ul>
-                      <li><a href='meusRelatos.php'>&#xe803; Meus Relatos</a>
-                     </li>
-                  </ul>
-               </li>
-                <li class='active'><a href='#'>&#xf2bd; Perfil</a>
-                  <ul>
-                     <li><a href='#'>&#xe804; Editar Perfil</a>
-                     </li>
+        <ul id="drop1" class="dropdown-content teal darken-4">
+            <li><a class="white-text" href="relatarProblemas.php">Relatar problemas</a></li>
+            <li><a class="white-text" href="meusRelatos.php">Meus relatos</a></li>
 
-                  </ul>
-               </li>
-               <li><a href="../php/deslogar.php">&#xe801; Logout</a>
-                     </li>
+        </ul>
+        <nav class="teal darken-4">
+            <div class="nav-wrapper">
+            <a href="#" class="brand-logo logo"><img class="logo" src="../img/icon.png" /></a>
+            <span id="title"  class="white-text flow-text hide-on-med-and-down">SAASP</span>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="" class="dropdown-trigger" data-target="drop1">Relatos<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="##">Perfil</a></li>
+                <li><a href="../php/deslogar.php">Sair</a></li>
             </ul>
-        </div>
-       
-
+            </div>
+        </nav>
 
 			<div id="tabela">
         <?php
