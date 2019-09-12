@@ -6,23 +6,21 @@
 <html>
     <head>
         <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
         <title>SAASP - System &copy; </title>
+        
         <link rel="stylesheet" href="../css/menu.css">
         <link rel="stylesheet" href="../css/estilo.css">
-        <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+        <link rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
 
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-        <script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/menu.js"></script>
-        <script type="text/javascript" src="../js/materialize.min.js"></script>
+        <script src="../js/materialize.min.js"></script>
         
-        <link rel="icon" type="imagem/png" href="../img/icon.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta name="viewport" content="width=device-width, user-scalable=no">   
-        <meta name="viewport" content="width=500, initial-scale=1">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-        
+        <link rel="icon" type="imagem/png" href="../img/icon.png">        
     </head>
     <body>
         <!--DROPS DO MENU-->

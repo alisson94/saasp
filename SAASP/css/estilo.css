@@ -295,12 +295,8 @@ body {
   }
 
   #title{
-    font-size: 200%;
+    font-size: 150%;
     margin-left: 8%;
 }
 
 @media (max-width: 267px) { 
-
-
-
- 
