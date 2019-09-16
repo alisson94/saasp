@@ -65,7 +65,7 @@
           </div>
 
           <div class="text-center">
-            <a class="txt2" href="#">
+            <a class="txt2" href="cadastro.php">
               Criar uma conta
               <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
             </a>

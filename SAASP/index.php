@@ -8,35 +8,71 @@
 <html lang="pt-br" >
 
 <head>
-    
-    <meta charset="UTF-8">
-    <script  src="js/jquery-3.3.1.min.js"></script>
-    <script  src="js/index.js"></script>
-    <title>SAASP - Acesso &copy;</title>
-    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
-    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
-    <meta name="viewport" content="width=device-width, user-scalable=no">   
-    <meta name="viewport" content="width=500, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <link rel="stylesheet" href="css/estilo.css">
-      <link rel="icon" type="imagem/png" href="img/icon.png">
+  <title>SAASP - Início &copy;</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->  
+  <link rel="icon" type="image/png" href="img/icon.png"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/maininicial.css">
+<!--===============================================================================================-->
+  
 </head>
 <body>
-    <div class="form"  id="opa" style="height: 505px;">
-      <div class="thumbnail"><img src="img/icon.png"/></div>
-      	<a href="acesso.php">
-            <button id="btnlog">Entrar</button>
-        </a>
-        <a href="cadastro.php">
-            <button id="btncad">Cadastre-se</button>
-        </a>
-        <div id="icons">
-            <label>Fale conosco</label>
-            <a href="#"><p id="face">&#xf30c;</p></a>
-            <a href="#"><p id="twi">&#xf309;</p></a>
-            <a href="#"><p id="ins">&#xf31f;</p></a>
-        </div>
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+          <span class="login100-form-title">
+            <img src="img/icon.png" alt="IMG">
+            Acessar Sistema
+          </span>
+          
+          <div class="container-login100-form-btn">
+            <a href="acesso.php"><button class="login100-form-btn" type="submit">
+              Entrar
+            </button></a>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <a href="cadastro.php"><button class="login100-form-btn" type="submit">
+            	Cadastre-se
+            </button></a>
+          </div>
+
+          
+      </div>
     </div>
+  </div>
+  
+  
+
+  
+<!--===============================================================================================-->  
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/tilt/tilt.jquery.min.js"></script>
+  <script >
+    $('.js-tilt').tilt({
+      scale: 1.1
+    })
+  </script>
+<!--===============================================================================================-->
+  <script src="js/main.js"></script>
 
 </body>
 
