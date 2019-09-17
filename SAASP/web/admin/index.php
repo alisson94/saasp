@@ -34,9 +34,10 @@
         </ul>
     </div>
     
-    <center><img src="../../img/icon.png"></center>
-    <center><b>Projeto - SAASP</b></center>
-    <center><b>Área Administrativa</b></center>
+    <div class="container-center">
+        <img src="../img/icon.png">
+        <b>Projeto - SAASP</b>
+    </div>
 
 </body>
 <html>

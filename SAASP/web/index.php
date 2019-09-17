@@ -10,7 +10,6 @@
 
     <title>SAASP - System &copy; </title>
     
-    <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
 
@@ -53,10 +52,12 @@
         <li><div class="divider"></div></li>
         <li><a href="editarPerfil.php" class='waves-effect'>Editar perfil<i class='material-icons left'>edit</i></a></li>
         <li><a href="../php/deslogar.php" class='waves-effect'>Sair<i class='material-icons left'>undo</i></a></li>
-        </ul>
+    </ul>
     
-    <center><img src="../img/icon.png"></center>
-    <center><b>Projeto - SAASP</b></center>
+    <div class="container-center">
+        <img src="../img/icon.png">
+        <b>Projeto - SAASP</b>
+    </div>
     
 </body>
 <html>

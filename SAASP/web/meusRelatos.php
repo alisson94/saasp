@@ -53,7 +53,7 @@
             <li><div class="divider"></div></li>
             <li><a href="editarPerfil.php" class='waves-effect'>Editar perfil<i class='material-icons left'>edit</i></a></li>
             <li><a href="../php/deslogar.php" class='waves-effect'>Sair<i class='material-icons left'>undo</i></a></li>
-          </ul>
+        </ul>
 
  
 			<div id="tabela">

@@ -8,7 +8,6 @@
 
         <title>SAASP - System &copy; </title>
         
-        <link rel="stylesheet" href="../css/menu.css">
         <link rel="stylesheet" href="../css/estilo.css">
         <link rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
 
@@ -51,10 +50,10 @@
             <li><div class="divider"></div></li>
             <li><a href="editarPerfil.php" class='waves-effect'>Editar perfil<i class='material-icons left'>edit</i></a></li>
             <li><a href="../php/deslogar.php" class='waves-effect'>Sair<i class='material-icons left'>undo</i></a></li>
-          </ul>
+        </ul>
 
- 
-        <form class="form" action="../php/relatar.php" method="post" enctype="multipart/form-data">
+        <div class="container-center">
+        <form class='form' action="../php/relatar.php" method="post" enctype="multipart/form-data">
             <p class="title">Dados do problema encontrado: </p>
             <select name="orgao" required>
                 <option value="">Orgão responsável por resolução: </option>
@@ -72,7 +71,8 @@
             <input type="text" name="local" required placeholder="Onde se encontra o problema?"><br>
             <input type="date" name="data" required><br>
             <input type="file" name="imagem" required>
-            <input class="submit" type="submit" value="Enviar">
+            <button>Enviar</button>
         </form>
+        </div>
     </body>
 </html>
