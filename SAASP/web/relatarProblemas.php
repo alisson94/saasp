@@ -63,10 +63,9 @@
                     <option value="orgao3">Orgao3</option>
                 </select>
             </div>
-            <div class="input-field">
-                <input type="text" id="description" name="descricao" required>
-                <label for="description">Descreva seu relato aqui</label>
-            </div>
+            
+            <input type="text" placeholder='Descreva seu relato aqui' name="descricao" required>
+            
             <div class="input-field">
                 <select name="gravidade" required>
                         <option value="" disabled selected>Gravidade: </option>
@@ -75,10 +74,9 @@
                         <option value="baixa">Baixa</option>
                 </select>
             </div>
-            <div class="input-field">
-                <input type="text" name="local" id='local' required>
-                <label for="local">Onde se encontra o problema?</label>
-            </div>
+
+            <input type="text" name="local" placeholder='Onde se encontra o problema?' required>
+
             <input type="text" class="datepicker" placeholder='Data'>
             <input type="date" name="data" required>
 
