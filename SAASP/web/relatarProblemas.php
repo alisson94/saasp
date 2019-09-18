@@ -55,23 +55,45 @@
         <div class="container-center">
         <form class='form' action="../php/relatar.php" method="post" enctype="multipart/form-data">
             <p class="title">Dados do problema encontrado: </p>
-            <select name="orgao" required>
-                <option value="">Orgão responsável por resolução: </option>
-                <option value="orgao1">Orgao1</option>
-                <option value="orgao2">Orgao2</option>
-                <option value="orgao3">Orgao3</option>
-            </select><br>
-            <input type="text" name="descricao" required placeholder="Descreva seu relato aqui"><br>
-            <select name="gravidade" required>
-                    <option value="">Gravidade: </option>
-                    <option value="alta">Alta</option>
-                    <option value="media">Média</option>
-                    <option value="baixa">Baixa</option>
-            </select><br>
-            <input type="text" name="local" required placeholder="Onde se encontra o problema?"><br>
-            <input type="date" name="data" required><br>
-            <input type="file" name="imagem" required>
-            <button>Enviar</button>
+            <div class="input-field">
+                <select name="orgao" required>
+                    <option value="" disabled selected>Orgão responsável por resolução: </option>
+                    <option value="orgao1">Orgao1</option>
+                    <option value="orgao2">Orgao2</option>
+                    <option value="orgao3">Orgao3</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <input type="text" id="description" name="descricao" required>
+                <label for="description">Descreva seu relato aqui</label>
+            </div>
+            <div class="input-field">
+                <select name="gravidade" required>
+                        <option value="" disabled selected>Gravidade: </option>
+                        <option value="alta">Alta</option>
+                        <option value="media">Média</option>
+                        <option value="baixa">Baixa</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <input type="text" name="local" id='local' required>
+                <label for="local">Onde se encontra o problema?</label>
+            </div>
+            <input type="text" class="datepicker" placeholder='Data'>
+            <input type="date" name="data" required>
+
+            <div class="file-field input-field">
+                <div class="btn teal darken-4">
+                    <span>Imagem</span>
+                    <input type="file" name='imagem' required>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light teal darken-4 right" type="submit" name="action">Enviar
+                <i class="material-icons right">send</i>
+             </button>
         </form>
         </div>
     </body>
