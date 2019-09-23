@@ -75,6 +75,8 @@
                 </select>
             </div>
 
+
+
             <input type="text" name="local" placeholder='Onde se encontra o problema?' required>
 
             <input type="text" class="datepicker" placeholder='Data'>
