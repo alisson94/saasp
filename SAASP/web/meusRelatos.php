@@ -55,35 +55,6 @@
             <li><a href="../php/deslogar.php" class='waves-effect'>Sair<i class='material-icons left'>undo</i></a></li>
         </ul>
 
- 
-			<div id="tabela">
-        <?php
-            $sql = "SELECT * FROM relatos WHERE autor = '$autor' ORDER BY id DESC";
-            $result = mysqli_query($con, $sql) or die("Erro ao se conectar ao servidor");
-            if($result){
-                while($row = mysqli_fetch_assoc($result)){
-                    ?>
-                <table class="table table-responsive">
-                <tr>
-                   <td>
-                    <figure>
-                        <img src="imagensRelatos/<?php echo $row['imagem']; ?>">
-                    </figure>
-                    <p><b>Orgão: </b><?php echo $row['orgao'] ; ?></p><br>
-                    <p><b>Descriçao: </b><?php echo $row['descricao'] ; ?></p><br>
-                    <p><b>Gravidade: </b><?php echo $row['gravidade'] ; ?></p><br>
-                    <p><b>Local: </b><?php echo $row['local'] ; ?></p><br>
-                    <p><b>Data: </b><?php echo $row['data'] ; ?></p><br>
-                    <p><b>Status: </b><?php if($row['resolvido'] == "sim"){echo "Resolvido";}else{echo "Não resolvido";} ?></p>
-                    
-                  </td>
-                </tr>
-        </table>
-                    <?php
-                }
-            }
-            mysqli_close($con);
-        ?>
-        </div> 
+        
     </body>
 </html>
