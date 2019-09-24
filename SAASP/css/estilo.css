@@ -83,3 +83,15 @@ input:focus{
 }
 
 
+/*BOX RELATOS*/
+.textoRelato{
+  font-size: 20px;
+}
+
+.alturaPersonalizada{
+  min-height: 250px !important;
+}
+
+.inputComentario{
+  height: 300px;
+}

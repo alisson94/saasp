@@ -3,4 +3,5 @@ $(document).ready(function(){
   $('.sidenav').sidenav();
   $('select').formSelect();
   $('.datepicker').datepicker({format: 'dd mmm, yyyy'});
+  $('.modal').modal();
 });

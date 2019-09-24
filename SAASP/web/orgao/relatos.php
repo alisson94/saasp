@@ -64,9 +64,9 @@
                     ?>
 
         <div class="col s12 m6">
-            <div class="card horizontal">
+            <div class="card horizontal alturaPersonalizada">
                 <div class="card-image">
-                    <img style='max-height: 300px; ' src="../imagensRelatos/<?php echo $row['imagem']; ?>">
+                    <img style='max-height: 250px;' src="../imagensRelatos/<?php echo $row['imagem']; ?>">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
@@ -75,13 +75,40 @@
                         <p class='textoRelato'>Local: <?php echo $row['local'] ; ?></p>
                         <p class='textoRelato'>Data: <?php echo $row['data'] ; ?></p>
                     </div>
-                    <div class="card-action grey lighten-3">
-                        <a class='dropdown-trigger btn' href='#' data-target='btnDrop1'>Drop Me!</a>
+                    <div class="card-action teal darken-3">
+                        <a class='dropdown-trigger btn red' data-target='btnDrop<?php echo $row['id'] ?>'>
+                            <?php
+                                if($row['resolvido'] == "sim"){
+                                    echo 'Resolvido';
+                                }elseif($row['resolvido'] == "nao"){
+                                    echo 'Não resolvido';
+                                }else{
+                                    echo 'Em processo';
+                                }
+                            ?>
+                        </a>
+                        <a href="#modal<?php echo $row['id'] ?>" class="btn blue modal-trigger">Enviar comentário</a>
                     </div>
-                    <ul id="btnDrop1" class="dropdown-content">
-                        <li>Teste</li>
-                        <li>Teste</li>
+                    <!--DROP BUTTON-->
+                    <ul id="btnDrop<?php echo $row['id'] ?>" class="dropdown-content">
+                        <li><a href="../../php/status.php?id=<?php echo $row['id'] ?>&tipo=nao">Não resolvido</a></li>
+                        <li><a href="../../php/status.php?id=<?php echo $row['id'] ?>&tipo=pro">Em processo</a></li>
+                        <li><a href="../../php/status.php?id=<?php echo $row['id'] ?>&tipo=sim">Resolvido</a></li>
                     </ul>
+                    <!--MODAL-->
+                    <div id="modal<?php echo $row['id'] ?>" class="modal modal-fixed-footer">
+                        <form action="" method="post">
+                            <div class="modal-content">
+                                <h4>Deixe um comentário para o autor</h4>
+                                <textarea class='inputComentario' name="comentario" cols="30" rows="50"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button class='btn waves-effect teal darken-4' type='submit'>Enviar
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
