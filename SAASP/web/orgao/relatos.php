@@ -65,10 +65,10 @@
 
         <div class="col s12 m6">
             <div class="card horizontal alturaPersonalizada">
-                <div class="card-image">
+                <div class="card-image" style='max-width: 270px;'>
                     <img style='max-height: 250px;' src="../imagensRelatos/<?php echo $row['imagem']; ?>">
                 </div>
-                <div class="card-stacked">
+                <div class="card-stacked" style="width: 382px;">
                     <div class="card-content">
                         <p class='textoRelato'>Descrição: <?php echo $row['descricao'] ; ?></p>
                         <p class='textoRelato'>Gravidade: <?php echo $row['gravidade'] ; ?></p>
