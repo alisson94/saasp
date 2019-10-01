@@ -84,14 +84,43 @@ input:focus{
 
 
 /*BOX RELATOS*/
-.textoRelato{
+
+.containerRelato{
+  display: grid;
+  align-content: space-around;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 15px #aaa;
+  margin-top: 20px;
+  padding: 20px;
   font-size: 20px;
+  font-weight: bold;
+  transition: all ease-in .1s;
 }
 
-.alturaPersonalizada{
-  min-height: 250px !important;
+.containerRelato:hover{
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.textoRelato{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.modalRelato{
+  max-height: 100% !important;
+  height: 97% !important;
+}
+
+.imgRelato{
+  max-width: 10px;
 }
 
 .inputComentario{
   height: 300px;
 }
+

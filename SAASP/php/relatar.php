@@ -18,7 +18,7 @@
     
     include 'connect.php';
     
-    $sql = "INSERT INTO relatos (autor , orgao , descricao , gravidade , local , data , resolvido , imagem) VALUES ('$autor', '$orgao', '$descricao', '$gravidade', '$local', '$data', 'nao', '$novoNome') ";
+    $sql = "INSERT INTO relatos (autor , orgao , descricao , gravidade , local , data , resolvido , imagem) VALUES ('$autor', '$orgao', '$descricao', '$gravidade', '$local', '$data', 'pen', '$novoNome') ";
     mysqli_query($con, $sql) or die("Erro ao se conectar com servidor");
     mysqli_close($con);
     header('Location: ../web/relatarProblemas.php');

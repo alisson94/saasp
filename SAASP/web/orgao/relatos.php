@@ -48,8 +48,6 @@
     <!--SIDE MENU-->
     <ul id="slide-out" class="sidenav">   
         <li><a href="index.php" class='waves-effect'>Home<i class='material-icons left'>home</i></a></li>
-        <li><a href="relatarProblemas.php" class='waves-effect'>Relatar problema<i class='material-icons left'>add</i></a></li>
-        <li><a href="meusRelatos.php" class='waves-effect'>Meus relatos<i class='material-icons left'>list</i></a></li>
         <li><div class="divider"></div></li>
         <li><a href="editarPerfil.php" class='waves-effect'>Editar perfil<i class='material-icons left'>edit</i></a></li>
         <li><a href="../php/deslogar.php" class='waves-effect'>Sair<i class='material-icons left'>undo</i></a></li>
@@ -63,55 +61,91 @@
                 while($row = mysqli_fetch_assoc($result)){
                     ?>
 
-        <div class="col s12 m6">
-            <div class="card horizontal alturaPersonalizada">
-                <div class="card-image" style='max-width: 270px;'>
-                    <img style='max-height: 250px;' src="../imagensRelatos/<?php echo $row['imagem']; ?>">
-                </div>
-                <div class="card-stacked" style="width: 382px;">
-                    <div class="card-content">
-                        <p class='textoRelato'>Descrição: <?php echo $row['descricao'] ; ?></p>
-                        <p class='textoRelato'>Gravidade: <?php echo $row['gravidade'] ; ?></p>
-                        <p class='textoRelato'>Local: <?php echo $row['local'] ; ?></p>
-                        <p class='textoRelato'>Data: <?php echo $row['data'] ; ?></p>
-                    </div>
-                    <div class="card-action teal darken-3">
-                        <a class='dropdown-trigger btn red' data-target='btnDrop<?php echo $row['id'] ?>'>
-                            <?php
-                                if($row['resolvido'] == "sim"){
-                                    echo 'Resolvido';
-                                }elseif($row['resolvido'] == "nao"){
-                                    echo 'Não resolvido';
-                                }else{
-                                    echo 'Em processo';
-                                }
-                            ?>
-                        </a>
-                        <a href="#modal<?php echo $row['id'] ?>" class="btn blue modal-trigger">Enviar comentário</a>
-                    </div>
-                    <!--DROP BUTTON-->
-                    <ul id="btnDrop<?php echo $row['id'] ?>" class="dropdown-content">
-                        <li><a href="../../php/status.php?id=<?php echo $row['id'] ?>&tipo=nao">Não resolvido</a></li>
-                        <li><a href="../../php/status.php?id=<?php echo $row['id'] ?>&tipo=pro">Em processo</a></li>
-                        <li><a href="../../php/status.php?id=<?php echo $row['id'] ?>&tipo=sim">Resolvido</a></li>
-                    </ul>
-                    <!--MODAL-->
-                    <div id="modal<?php echo $row['id'] ?>" class="modal modal-fixed-footer">
-                        <form action="" method="post">
-                            <div class="modal-content">
-                                <h4>Deixe um comentário para o autor</h4>
-                                <textarea class='inputComentario' name="comentario" cols="30" rows="50"></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button class='btn waves-effect teal darken-4' type='submit'>Enviar
-                                    <i class="material-icons right">send</i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="col s12 m4">
+            <div class="containerRelato modal-trigger 
+                <?php
+                    if($row['resolvido'] == "sim"){
+                        echo 'green white-text';
+                    }elseif($row['resolvido'] == "pro"){
+                        echo 'orange white-text';
+                    }
+                ?>
+            " data-target="modal<?php echo $row['id'] ?>">
+                <p class='textoRelato'>Descriçao: <b> <?php echo $row['descricao'] ; ?> </b> </p>
+                <p class='textoRelato'>Gravidade: <b> <?php echo $row['gravidade'] ; ?> </b> </p>
+                <p class='textoRelato'>Local: <b> <?php echo $row['local'] ; ?> </b> </p>
+                <p class='textoRelato'>Data: <b> <?php echo $row['data'] ; ?> </b> </p>
+                <p class='textoRelato'>Estado: <b> 
+                    <?php
+                        if($row['resolvido'] == "sim"){
+                            echo 'Resolvido';
+                        }elseif($row['resolvido'] == "pen"){
+                            echo 'Pendente';
+                        }else{
+                            echo 'Em processo';
+                        }
+                    ?> </b> </p>
             </div>
         </div>
+        <!--MODAL-->
+        <div id="modal<?php echo $row['id'] ?>" class="modal modal-fixed-footer modalRelato">
+            <form action="" method="GET">
+                <div class="modal-content">
+                    <center><h5><b>Detalhes do relato</b></h5>
+                       <img src="../imagensRelatos/<?php echo $row['imagem']; ?>" class="responsive-img" style="max-width: 100%;">
+                        
+                    </center>
+                    <ul style="font-size: 20px;">
+                        <li>Descriçao: </b><?php echo $row['descricao'] ; ?></li>
+                        <li>Gravidade: </b><?php echo $row['gravidade'] ; ?></li>
+                        <li>Local: </b><?php echo $row['local'] ; ?></li>
+                        <li>Data: </b><?php echo $row['data'] ; ?></li>
+                        <li>  </li>
+                    </ul>
+
+                    <a class='dropdown-trigger btn 
+                        <?php
+                            if($row['resolvido'] == "sim"){
+                                echo 'green';
+                            }elseif($row['resolvido'] == "pen"){
+                                echo 'red';
+                            }else{
+                                echo 'orange';
+                            }
+                        ?>
+                    '
+                    data-target='btnDrop<?php echo $row['id'] ?>'
+                    >
+                        <?php
+                            if($row['resolvido'] == "sim"){
+                                echo 'Resolvido';
+                            }elseif($row['resolvido'] == "pen"){
+                                echo 'Pendente';
+                            }else{
+                                echo 'Em processo';
+                            }
+                        ?>
+                    </a>
+
+                </div>
+                
+                <div class="modal-footer">
+                    <button class='btn waves-effect teal darken-4' type='submit' >Enviar
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                   
+                
+            </form>
+        </div>
+
+        <!--DROP BUTTON-->
+        <ul id="btnDrop<?php echo $row['id'] ?>" class="dropdown-content">
+            <li><a href="../../php/status.php?id=<?php echo $row['id'] ?>&tipo=pen">Pendente</a></li>
+            <li><a href="../../php/status.php?id=<?php echo $row['id'] ?>&tipo=pro">Em processo</a></li>
+            <li><a href="../../php/status.php?id=<?php echo $row['id'] ?>&tipo=sim">Resolvido</a></li>
+        </ul>
+        
         <?php
                 }
             }

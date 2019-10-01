@@ -48,8 +48,8 @@
     <!--SIDE MENU-->
     <ul id="slide-out" class="sidenav">   
         <li><a href="index.php" class='waves-effect'>Home<i class='material-icons left'>home</i></a></li>
-        <li><a href="relatarProblemas.php" class='waves-effect'>Relatar problema<i class='material-icons left'>add</i></a></li>
-        <li><a href="meusRelatos.php" class='waves-effect'>Meus relatos<i class='material-icons left'>list</i></a></li>
+        <li><a class="waves-effect" href="relatos.php">Todos relatos<i class='material-icons left'>list</i></a></li>
+        <li><a class="waves-effect" href="estatisticas.php">Estatísticas<i class='material-icons left'>timeline</i></a></li>
         <li><div class="divider"></div></li>
         <li><a href="editarPerfil.php" class='waves-effect'>Editar perfil<i class='material-icons left'>edit</i></a></li>
         <li><a href="../php/deslogar.php" class='waves-effect'>Sair<i class='material-icons left'>undo</i></a></li>
