@@ -61,7 +61,7 @@
                 while($row = mysqli_fetch_assoc($result)){
                     ?>
 
-        <div class="col s12 m4">
+        <div class="col s12 m4" style="font-family: arial;">
             <div class="containerRelato modal-trigger 
                 <?php
                     if($row['resolvido'] == "sim"){
@@ -71,11 +71,11 @@
                     }
                 ?>
             " data-target="modal<?php echo $row['id'] ?>">
-                <p class='textoRelato'>Descriçao: <b> <?php echo $row['descricao'] ; ?> </b> </p>
-                <p class='textoRelato'>Gravidade: <b> <?php echo $row['gravidade'] ; ?> </b> </p>
-                <p class='textoRelato'>Local: <b> <?php echo $row['local'] ; ?> </b> </p>
-                <p class='textoRelato'>Data: <b> <?php echo $row['data'] ; ?> </b> </p>
-                <p class='textoRelato'>Estado: <b> 
+                <p class='textoRelato'><b>Descrição: </b> <?php echo $row['descricao'] ; ?> </p>
+                <p class='textoRelato'><b>Gravidade: </b> <?php echo $row['gravidade'] ; ?> </p>
+                <p class='textoRelato'><b>Local: </b> <?php echo $row['local'] ; ?> </p>
+                <p class='textoRelato'><b>Data: </b> <?php echo $row['data'] ; ?> </p>
+                <p class='textoRelato'><b>Estado: </b> 
                     <?php
                         if($row['resolvido'] == "sim"){
                             echo 'Resolvido';
@@ -84,7 +84,7 @@
                         }else{
                             echo 'Em processo';
                         }
-                    ?> </b> </p>
+                    ?> </p>
             </div>
         </div>
         <!--MODAL-->
