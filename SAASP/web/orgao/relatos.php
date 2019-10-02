@@ -21,6 +21,15 @@
     <script src="../../js/materialize.min.js"></script>
     
     <link rel="icon" type="imagem/png" href="../../img/icon.png">        
+    <script>
+        $(document).on("keydown", "#textarea", function () {
+            var caracteresRestantes = 300;
+            var caracteresDigitados = parseInt($(this).val().length);
+            var caracteresRestantes = caracteresRestantes - caracteresDigitados;
+
+    $(".caracteres").text(caracteresRestantes);
+});
+    </script>
 </head>
 <body>
     <!--DROPS DO MENU-->
@@ -61,7 +70,7 @@
                 while($row = mysqli_fetch_assoc($result)){
                     ?>
 
-        <div class="col s12 m4" style="font-family: arial;">
+        <div class="col s12 m4" style="">
             <div class="containerRelato modal-trigger 
                 <?php
                     if($row['resolvido'] == "sim"){
@@ -89,21 +98,32 @@
         </div>
         <!--MODAL-->
         <div id="modal<?php echo $row['id'] ?>" class="modal modal-fixed-footer modalRelato">
-            <form action="" method="GET">
+            <form action="" method="POST">
                 <div class="modal-content">
                     <center><h5><b>Detalhes do relato</b></h5>
                        <img src="../imagensRelatos/<?php echo $row['imagem']; ?>" class="responsive-img" style="max-width: 100%;">
                         
                     </center>
                     <ul style="font-size: 20px;">
-                        <li>Descriçao: </b><?php echo $row['descricao'] ; ?></li>
-                        <li>Gravidade: </b><?php echo $row['gravidade'] ; ?></li>
-                        <li>Local: </b><?php echo $row['local'] ; ?></li>
-                        <li>Data: </b><?php echo $row['data'] ; ?></li>
-                        <li>  </li>
-                    </ul>
+                        <li><b>Descrição: </b><?php echo $row['descricao'] ; ?></li>
+                        <li><b>Gravidade: </b><?php echo $row['gravidade'] ; ?></li>
+                        <li><b>Local: </b><?php echo $row['local'] ; ?></li>
+                        <li><b>Data: </b><?php echo $row['data'] ; ?></li>
+                        <li><b>Deixe seu comentário:</b><textarea id="textarea"  rows="5" name="comentario" maxlength="300" placeholder="Escreva aqui..."></textarea>
+                        <span class="caracteres" style="font-size: 15px; left: 96%; top: -15px; position: relative;">300</span>
+                        </li>
+                        <li><b>Estado: </b>
+                        <label>
+                            <input type="checkbox" />
+                            <span>Em processo</span>
+                        </label>
 
-                    <a class='dropdown-trigger btn 
+                        <label>
+                            <input type="checkbox" />
+                            <span>Resolvido</span>
+                        </label>
+
+                        <a class='dropdown-trigger btn 
                         <?php
                             if($row['resolvido'] == "sim"){
                                 echo 'green';
@@ -125,8 +145,8 @@
                                 echo 'Em processo';
                             }
                         ?>
-                    </a>
-
+                    </a></li>
+                    </ul>
                 </div>
                 
                 <div class="modal-footer">
@@ -184,6 +204,6 @@
         ?>
         </div> 
             -->
-
+ 
     </body>
 </html>

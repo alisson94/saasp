@@ -95,7 +95,6 @@ input:focus{
   margin-top: 20px;
   padding: 20px;
   font-size: 20px;
-  font-weight: bold;
   transition: all ease-in .1s;
 }
 
@@ -124,3 +123,7 @@ input:focus{
   height: 300px;
 }
 
+#textarea {
+  resize: none;
+  height: auto !important;
+}

@@ -1,6 +1,34 @@
-<?php
-    include '../../php/protegePagina.php';
-?>
+<script>
+    const list = []
+    <?php
+        include '../../php/protegePagina.php';
+        include '../../php/connect.php';
+        $orgao = $_SESSION['login'];
+
+        $listEstado = ['sim', 'pen', 'pro'];
+        $listNumEstatisticasRelatos = array();
+
+        for ($i=1; $i < 13; $i++) { 
+            $numEstados = [0,0,0];
+
+            foreach ($listEstado as $key => $value) {
+                $sql = "SELECT * FROM relatos WHERE orgao = '$orgao' AND resolvido = '$value' AND mes = $i";
+                $result = mysqli_query($con, $sql) or die("Erro ao se conectar ao servidor");
+                
+                if($result){
+                    $numEstados[$key] = mysqli_num_rows($result);
+                }
+            }
+
+            $listNumEstatisticasRelatos[$i - 1] = $numEstados;
+            ?>
+                list.push([<?php echo $numEstados[0] ?>, <?php echo $numEstados[1] ?>, <?php echo $numEstados[2] ?>])
+            <?php
+        }
+        
+    ?>
+
+</script>
 <html>
 <head>
     <meta charset='utf-8'>
@@ -22,7 +50,7 @@
     
     <link rel="icon" type="imagem/png" href="../../img/icon.png">        
 </head>
-<body>
+<body onLoad="iniciarGrafico(list)">
     <!--DROPS DO MENU-->
     <ul id="drop1" class="dropdown-content">
         <li><a class="grey-text text-darken-2 waves-effect" href="relatos.php">Todos relatos<i class='material-icons left'>list</i></a></li>
@@ -56,47 +84,16 @@
     </ul>
         
         <!-- COMEÇAR AQUI -->
-        <canvas id="myChart" width="30" height="30"></canvas>
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-</script>
+        <center>
+        
+            <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+                <h6><b>Estatísticas dos Relatos</b></h6>
+                    <canvas id="myChart"></canvas>
+            </div>
+        
+        </center>
 
 
+        <script src="../../js/grafico.js"></script>
     </body>
 </html>

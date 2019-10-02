@@ -54,7 +54,82 @@
             <li><a href="editarPerfil.php" class='waves-effect'>Editar perfil<i class='material-icons left'>edit</i></a></li>
             <li><a href="../php/deslogar.php" class='waves-effect'>Sair<i class='material-icons left'>undo</i></a></li>
         </ul>
+  <div class="row">
+        <?php
+            $sql = "SELECT * FROM relatos WHERE autor = '$autor' ORDER BY id DESC";
+            $result = mysqli_query($con, $sql) or die("Erro ao se conectar ao servidor");
+            if($result){
+                while($row = mysqli_fetch_assoc($result)){
+                    ?>
 
+        <div class="col s12 m4" style="">
+            <div class="containerRelato modal-trigger 
+                <?php
+                    if($row['resolvido'] == "sim"){
+                        echo 'green white-text';
+                    }elseif($row['resolvido'] == "pro"){
+                        echo 'orange white-text';
+                    }
+                ?>
+            " data-target="modal<?php echo $row['id'] ?>">
+                <p class='textoRelato'><b>Descrição: </b> <?php echo $row['descricao'] ; ?> </p>
+                <p class='textoRelato'><b>Gravidade: </b> <?php echo $row['gravidade'] ; ?> </p>
+                <p class='textoRelato'><b>Local: </b> <?php echo $row['local'] ; ?> </p>
+                <p class='textoRelato'><b>Data: </b> <?php echo $row['data'] ; ?> </p>
+                <p class='textoRelato'><b>Estado: </b> 
+                    <?php
+                        if($row['resolvido'] == "sim"){
+                            echo 'Resolvido';
+                        }elseif($row['resolvido'] == "pen"){
+                            echo 'Pendente';
+                        }else{
+                            echo 'Em processo';
+                        }
+                    ?> </p>
+                <p class="textoRelato"><b>Comentário: </b><?php echo $row['comentario'] ;?></p>
+            </div>
+        </div>
+        <!--MODAL-->
+        <div id="modal<?php echo $row['id'] ?>" class="modal modal-fixed-footer modalRelato">
+            <form action="" method="GET">
+                <div class="modal-content">
+                    <center><h5><b>Detalhes do relato</b></h5>
+                       <img src="imagensRelatos/<?php echo $row['imagem']; ?>" class="responsive-img" style="max-width: 100%;">
+                        
+                    </center>
+                    <ul style="font-size: 20px;">
+                        <li><b>Descrição: </b><?php echo $row['descricao'] ; ?></li>
+                        <li><b>Gravidade: </b><?php echo $row['gravidade'] ; ?></li>
+                        <li><b>Local: </b><?php echo $row['local'] ; ?></li>
+                        <li><b>Data: </b><?php echo $row['data'] ; ?></li>
+                        <li><b>Estado: </b><?php 
+                        if($row['resolvido'] == "sim"){
+                            echo 'Resolvido';
+                        }elseif($row['resolvido'] == "pen"){
+                            echo 'Pendente';
+                        }else{
+                            echo 'Em processo';
+                        } ?> </li>
+                        <li><b>Comentário do Responsável:</b><?php echo $row['comentario'];?></li>
+                    </ul>
+                </div>
+                
+                <div class="modal-footer">
+                    <button class='btn waves-effect teal darken-4' type='submit' >Enviar
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                   
+                
+            </form>
+        </div>
+        <?php
+                }
+            }
+            mysqli_close($con);
+        ?>
+        
+    </div>
         
     </body>
 </html>
