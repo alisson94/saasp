@@ -75,7 +75,7 @@
                 <p class='textoRelato'><b>Descrição: </b> <?php echo $row['descricao'] ; ?> </p>
                 <p class='textoRelato'><b>Gravidade: </b> <?php echo $row['gravidade'] ; ?> </p>
                 <p class='textoRelato'><b>Local: </b> <?php echo $row['local'] ; ?> </p>
-                <p class='textoRelato'><b>Data: </b> <?php echo $row['data'] ; ?> </p>
+                <p class='textoRelato'><b>Data: </b> <?php echo Date('d-m-Y', strtotime($row['data'])); ?> </p>
                 <p class='textoRelato'><b>Estado: </b> 
                     <?php
                         if($row['resolvido'] == "sim"){
@@ -114,11 +114,11 @@
                     </ul>
                 </div>
                 
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button class='btn waves-effect teal darken-4' type='submit' >Enviar
                         <i class="material-icons right">send</i>
                     </button>
-                </div>
+                </div> -->
                    
                 
             </form>

@@ -83,7 +83,7 @@
                 <p class='textoRelato'><b>Descrição: </b> <?php echo $row['descricao'] ; ?> </p>
                 <p class='textoRelato'><b>Gravidade: </b> <?php echo $row['gravidade'] ; ?> </p>
                 <p class='textoRelato'><b>Local: </b> <?php echo $row['local'] ; ?> </p>
-                <p class='textoRelato'><b>Data: </b> <?php echo $row['data'] ; ?> </p>
+                <p class='textoRelato'><b>Data: </b> <?php echo Date('d-m-Y', strtotime($row['data'])) ; ?> </p>
                 <p class='textoRelato'><b>Estado: </b> 
                     <?php
                         if($row['resolvido'] == "sim"){
@@ -98,7 +98,7 @@
         </div>
         <!--MODAL-->
         <div id="modal<?php echo $row['id'] ?>" class="modal modal-fixed-footer modalRelato">
-            <form action="" method="POST">
+            <form action="../../php/atualizarRelato.php?id=<?php echo $row['id'] ?>" method="POST">
                 <div class="modal-content">
                     <center><h5><b>Detalhes do relato</b></h5>
                        <img src="../imagensRelatos/<?php echo $row['imagem']; ?>" class="responsive-img" style="max-width: 100%;">
@@ -108,21 +108,24 @@
                         <li><b>Descrição: </b><?php echo $row['descricao'] ; ?></li>
                         <li><b>Gravidade: </b><?php echo $row['gravidade'] ; ?></li>
                         <li><b>Local: </b><?php echo $row['local'] ; ?></li>
-                        <li><b>Data: </b><?php echo $row['data'] ; ?></li>
-                        <li><b>Deixe seu comentário:</b><textarea id="textarea"  rows="5" name="comentario" maxlength="300" placeholder="Escreva aqui..."></textarea>
-                        <span class="caracteres" style="font-size: 15px; left: 96%; top: -15px; position: relative;">300</span>
+                        <li><b>Data: </b><?php echo Date('d-m-Y', strtotime($row['data'])) ; ?></li>
+                        <li>
+                            <b>Deixe seu comentário:</b>
+                            <textarea id="textarea"  rows="5" name="comentario" maxlength="300" placeholder="Escreva aqui..."></textarea>
+                            <span class="caracteres" style="font-size: 15px; left: 96%; top: -15px; position: relative;">300</span>
                         </li>
                         <li><b>Estado: </b>
                         <label>
-                            <input type="checkbox" />
+                            <input name='checkPro' type="checkbox" <?php echo ($row['resolvido'] == 'pro' ? 'checked': ''); ?>/>
                             <span>Em processo</span>
                         </label>
 
                         <label>
-                            <input type="checkbox" />
+                            <input name='checkRes' type="checkbox" <?php echo ($row['resolvido'] == 'sim' ? 'checked': ''); ?>/>
                             <span>Resolvido</span>
                         </label>
 
+                        <!-- BUTTON do DROPDOWN -->
                         <a class='dropdown-trigger btn 
                         <?php
                             if($row['resolvido'] == "sim"){
@@ -173,37 +176,5 @@
         ?>
         
     </div>
-
-        <!--
-        <div id="tabela">
-        <?php
-            $sql = "SELECT * FROM relatos WHERE orgao = '$orgao' ORDER BY id DESC";
-            $result = mysqli_query($con, $sql) or die("Erro ao se conectar ao servidor");
-            if($result){
-                while($row = mysqli_fetch_assoc($result)){
-                    ?>
-                <table class="table table-responsive">
-            <tr>
-               <td>
-                <figure>
-                    <img src="../imagensRelatos/<?php echo $row['imagem']; ?>">
-                </figure>
-                  <p><b>Descriçao: </b><?php echo $row['descricao'] ; ?></p><br>
-                  <p><b>Gravidade: </b><?php echo $row['gravidade'] ; ?></p><br>
-                  <p><b>Local: </b><?php echo $row['local'] ; ?></p><br>
-                  <p><b>Data: </b><?php echo $row['data'] ; ?></p><br>
-                
-              </td>/
-              <td><a class="btnstatus" href="../../php/status.php?i=<?php echo $row['id'] ?>"><?php if($row['resolvido'] == "sim"){echo "Resolvido";}elseif($row['resolvido'] == "and"){echo "Em andamento";}else{echo "Não resolvido";} ?></a></td>
-            </tr>
-        </table>
-                    <?php
-                }
-            }
-            mysqli_close($con);
-        ?>
-        </div> 
-            -->
- 
     </body>
 </html>
