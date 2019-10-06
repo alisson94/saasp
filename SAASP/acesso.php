@@ -1,9 +1,11 @@
 <?php
   session_start();
   $toast;
-  if($_SESSION['dadosInvalidos'] === true){
-    $toast = true;
-    $_SESSION['dadosInvalidos'] = false;
+  if(isset($_SESSION['dadosInvalidos'])){
+    if($_SESSION['dadosInvalidos'] === true){
+      $toast = true;
+      $_SESSION['dadosInvalidos'] = false;
+    }
   }
 ?>
 

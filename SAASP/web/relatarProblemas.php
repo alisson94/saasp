@@ -1,5 +1,12 @@
 <?php
     include '../php/protegePagina.php';
+    $toast;
+    if(isset($_SESSION['relatoFeito'])){
+        if($_SESSION['relatoFeito'] === true){
+        $toast = true;
+        $_SESSION['relatoFeito'] = false;
+        }
+    }
 ?>
 <html>
     <head>
@@ -19,7 +26,7 @@
         
         <link rel="icon" type="imagem/png" href="../img/icon.png">        
     </head>
-    <body>
+    <body onLoad='<?php echo $toast ? 'M.toast({html: "Relato feito com sucesso"})' : '' ?>'>
         <!--DROPS DO MENU-->
         <ul id="drop1" class="dropdown-content">
             <li><a class="grey-text text-darken-2 waves-effect" href="relatarProblemas.php">Relatar problema<i class='material-icons left'>add</i></a></li>

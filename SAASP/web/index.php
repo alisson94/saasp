@@ -22,8 +22,6 @@
     <link rel="icon" type="imagem/png" href="../img/icon.png">        
 </head>
 <body>
-<a onclick="M.toast({html: 'I am a toast'})">Toast!</a>
-
     <!--DROPS DO MENU-->
     <ul id="drop1" class="dropdown-content">
         <li><a class="grey-text text-darken-2 waves-effect" href="relatarProblemas.php">Relatar problema<i class='material-icons left'>add</i></a></li>

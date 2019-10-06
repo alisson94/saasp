@@ -111,44 +111,25 @@
                         <li><b>Data: </b><?php echo Date('d-m-Y', strtotime($row['data'])) ; ?></li>
                         <li>
                             <b>Deixe seu comentário:</b>
-                            <textarea id="textarea"  rows="5" name="comentario" maxlength="300" placeholder="Escreva aqui..."></textarea>
+                            <textarea id="textarea"  rows="5" name="comentario" maxlength="300" placeholder="Escreva aqui..."><?php echo $row['comentario'] ?></textarea>
                             <span class="caracteres" style="font-size: 15px; left: 96%; top: -15px; position: relative;">300</span>
                         </li>
                         <li><b>Estado: </b>
-                        <label>
-                            <input name='checkPro' type="checkbox" <?php echo ($row['resolvido'] == 'pro' ? 'checked': ''); ?>/>
-                            <span>Em processo</span>
-                        </label>
 
-                        <label>
-                            <input name='checkRes' type="checkbox" <?php echo ($row['resolvido'] == 'sim' ? 'checked': ''); ?>/>
-                            <span>Resolvido</span>
-                        </label>
+                        <p>
+                            <label>
+                                <input name="resolvido" type="radio" value="pro" <?php echo ($row['resolvido'] == 'pro' ? 'checked': ''); ?> />
+                                <span>Em processo</span>
+                            </label>
+                            </p>
+                            <p>
+                            <label>
+                                <input name="resolvido" type="radio" value="sim" <?php echo ($row['resolvido'] == 'sim' ? 'checked': ''); ?>/>
+                                <span>Resolvido</span>
+                            </label>
+                        </p>
 
-                        <!-- BUTTON do DROPDOWN -->
-                        <a class='dropdown-trigger btn 
-                        <?php
-                            if($row['resolvido'] == "sim"){
-                                echo 'green';
-                            }elseif($row['resolvido'] == "pen"){
-                                echo 'red';
-                            }else{
-                                echo 'orange';
-                            }
-                        ?>
-                    '
-                    data-target='btnDrop<?php echo $row['id'] ?>'
-                    >
-                        <?php
-                            if($row['resolvido'] == "sim"){
-                                echo 'Resolvido';
-                            }elseif($row['resolvido'] == "pen"){
-                                echo 'Pendente';
-                            }else{
-                                echo 'Em processo';
-                            }
-                        ?>
-                    </a></li>
+                        </li>
                     </ul>
                 </div>
                 
