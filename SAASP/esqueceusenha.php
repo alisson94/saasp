@@ -1,16 +1,6 @@
-<?php
-  session_start();
-  $toast;
-  if(isset($_SESSION['dadosInvalidos'])){
-    if($_SESSION['dadosInvalidos'] === true){
-      $toast = true;
-      $_SESSION['dadosInvalidos'] = false;
-    }
-  }
-?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <title>SAASP - Acesso &copy;</title>
   <meta charset="UTF-8">
@@ -31,57 +21,59 @@
   <link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 
-<!-- IMPORT TOAST -->
-<script src="js/jquery-3.3.1.min.js"></script>
-<link href="css/toastr.css" rel="stylesheet">
-<script src="js/toastr.js"></script>
-
-
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('input[type=password][name=senhaRep]').on('change', function(){
+        if(this.value != $('input[type=password][name=senha]').val()){
+          alert('Redigite a senha corretamente');
+          this.value = null;
+          this.focus();
+          $('button').attr('disabled', 'disabled');
+        }else{
+          $('button').attr('disabled', null);
+        }
+      });
+    });
+  </script>
 </head>
-<body onLoad='<?php echo $toast ? 'toastr.error("Usuário ou senha inválidos",)' : ''; ?>'>
+<body>
+  
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
+        
 
-        <form class="login100-form validate-form" method="post" action="php/verificar.php">
+        <form class="login100-form validate-form" action="esqueceusenha.php" method="post">
           <span class="login100-form-title">
             <img src="img/icon.png" alt="IMG">
-            Acessar Sistema
+            Esqueceu sua senha?
+            <h6><br>Informe seu Email e CPF para enviarmos a sua nova senha!</h6>
           </span>
 
-          <div class="wrap-input100 validate-input" data-validate = "E-mail válido é obrigatório: ex@abc.xyz">
-            <input class="input100" type="text" name="login" placeholder="Usuário">
+          <div class="wrap-input100 validate-input">
+            <input class="input100" type="text" name="email" placeholder="Email cadastrado">
             <span class="focus-input100"></span>
             <span class="symbol-input100">
-              <i class="fa fa-user" aria-hidden="true"></i>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
             </span>
           </div>
 
-          <div class="wrap-input100 validate-input" data-validate = "Senha requerida">
-            <input class="input100" type="password" name="senha" placeholder="Senha">
+          <div class="wrap-input100 validate-input">
+            <input class="input100" type="text" name="cpf" placeholder="Número de CPF">
             <span class="focus-input100"></span>
             <span class="symbol-input100">
-              <i class="fa fa-lock" aria-hidden="true"></i>
+              <i class="fa fa-address-card" aria-hidden="true"></i>
             </span>
           </div>
           
           <div class="container-login100-form-btn">
             <button class="login100-form-btn" type="submit">
-              Entrar
+              Recuperar senha
             </button>
           </div>
 
           <div class="text-center">
-            <span class="txt1">
-              Esqueceu seu
-            </span>
-            <a class="txt2" href="esqueceusenha.php">
-              Usuário / Senha?
-            </a>
-          </div>
-
-          <div class="text-center">
-            <a class="txt2" href="cadastro.php">
+            <a class="txt2" href="acesso.php">
               Criar uma conta
               <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
             </a>
@@ -109,8 +101,7 @@
     })
   </script>
 <!--===============================================================================================-->
-  <script src="js/main.js">
-  </script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>
