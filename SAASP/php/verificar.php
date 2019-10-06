@@ -17,21 +17,22 @@ if(mysqli_num_rows ($result) > 0 ){
     $row = mysqli_fetch_assoc($result);
 
     if($row['nivelAcesso'] == 1){
-    	echo "<script>alert('Seja bem vindo, senhor(a) $login.'); location.href='../web/admin/index.php'</script> ";
+    	echo "<script> location.href='../web/admin/index.php'</script> ";
     }elseif ($row['nivelAcesso'] == 2) {
-    	echo "<script>alert('Seja bem vindo, senhor(a) $login.'); location.href='../web/ouvidoria/index.php'</script> ";
+    	echo "<script> location.href='../web/ouvidoria/index.php'</script> ";
     }elseif ($row['nivelAcesso'] == 3) {
-    	echo "<script>alert('Seja bem vindo, senhor(a) $login.'); location.href='../web/orgao/index.php'</script> ";
+    	echo "<script> location.href='../web/orgao/index.php'</script> ";
     }
     else{
-    	echo "<script>alert('Seja bem vindo, senhor(a) $login.'); location.href='../web/index.php'</script> ";
+    	echo "<script> location.href='../web/index.php'</script> ";
     }
+    
 }else{
 	unset ($_SESSION['login']);
 	unset ($_SESSION['senha']);
         $_SESSION['logado'] = false;
-	echo "<script>alert('Dados incorretos.'); location.href='../acesso.php'</script> ";
-
+	echo "<script>location.href='../acesso.php'</script> ";
+    $_SESSION['dadosInvalidos'] = true;
 
 	//ATÉ QUE FIM
 	}

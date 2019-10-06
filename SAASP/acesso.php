@@ -1,5 +1,14 @@
+<?php
+  session_start();
+  $toast;
+  if($_SESSION['dadosInvalidos'] === true){
+    $toast = true;
+    $_SESSION['dadosInvalidos'] = false;
+  }
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <title>SAASP - Acesso &copy;</title>
   <meta charset="UTF-8">
@@ -19,13 +28,18 @@
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
+<!-- IMPORT TOAST -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<link href="css/toastr.css" rel="stylesheet">
+<script src="js/toastr.js"></script>
+
+
 </head>
-<body>
-  
+<body onLoad='<?php echo $toast ? 'toastr.error("Usuário ou senha inválidos",)' : ''; ?>'>
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
-        
 
         <form class="login100-form validate-form" method="post" action="php/verificar.php">
           <span class="login100-form-title">
@@ -93,7 +107,8 @@
     })
   </script>
 <!--===============================================================================================-->
-  <script src="js/main.js"></script>
+  <script src="js/main.js">
+  </script>
 
 </body>
 </html>
