@@ -10,6 +10,7 @@ $sql = ("SELECT * FROM `usuarios` WHERE `user` = '$login' AND `senha`= '$senha'"
 $result = mysqli_query($con, $sql);
 
 if(mysqli_num_rows ($result) > 0 ){ 
+    
     $_SESSION['login'] = $login;
     $_SESSION['senha'] = $senha;
     $_SESSION['logado'] = true;

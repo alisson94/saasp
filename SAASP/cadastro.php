@@ -1,3 +1,14 @@
+<?php
+  session_start();
+  $toast;
+  if(isset($_SESSION['dadosInvalidos'])){
+    if($_SESSION['dadosInvalidos'] === true){
+      $toast = true;
+      $_SESSION['dadosInvalidos'] = false;
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,16 +31,17 @@
   <link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 
+<script src="js/jquery-3.3.1.min.js"></script>
+<link href="css/toastr.css" rel="stylesheet">
+<script src="js/toastr.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function(){
       $('input[type=password][name=senhaRep]').on('change', function(){
         if(this.value != $('input[type=password][name=senha]').val()){
-          alert('Redigite a senha corretamente');
+          toastr.error("Repita a senha corretamente");
           this.value = null;
           this.focus();
-          $('button').attr('disabled', 'disabled');
-        }else{
-          $('button').attr('disabled', null);
         }
       });
     });
@@ -45,11 +57,11 @@
         <form class="login100-form validate-form" action="php/cadastrar.php" method="post">
           <span class="login100-form-title">
             <img src="img/icon.png" alt="IMG">
-            Cadastrar no Sistema
+            Cadastre-se agora!
           </span>
 
           <div class="wrap-input100 validate-input">
-            <input class="input100" type="text" name="nomeC" placeholder="Nome completo">
+            <input class="input100" type="text" name="nomeC" placeholder="Nome completo" required>
             <span class="focus-input100"></span>
             <span class="symbol-input100">
               <i class="fa fa-user" aria-hidden="true"></i>
@@ -57,7 +69,7 @@
           </div>
 
           <div class="wrap-input100 validate-input">
-            <input class="input100" type="text" name="usuario" placeholder="Nome de Usuário">
+            <input class="input100" type="text" name="usuario" placeholder="Nome de Usuário" required>
             <span class="focus-input100"></span>
             <span class="symbol-input100">
               <i class="fa fa-user" aria-hidden="true"></i>
@@ -65,7 +77,7 @@
           </div>
 
           <div class="wrap-input100 validate-input">
-            <input class="input100" type="text" name="email" placeholder="Email válido">
+            <input class="input100" type="email" name="email" placeholder="Seu melhor e-mail" required>
             <span class="focus-input100"></span>
             <span class="symbol-input100">
               <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -73,7 +85,7 @@
           </div>
 
           <div class="wrap-input100 validate-input">
-            <input class="input100" type="text" name="cpf" placeholder="Número de CPF">
+            <input class="input100" type="text" name="cpf" placeholder="Número de CPF" required>
             <span class="focus-input100"></span>
             <span class="symbol-input100">
               <i class="fa fa-address-card" aria-hidden="true"></i>
@@ -81,7 +93,7 @@
           </div>
 
           <div class="wrap-input100 validate-input">
-            <input class="input100" type="password" name="senha" placeholder="Senha">
+            <input class="input100" type="password" name="senha" placeholder="Senha" required>
             <span class="focus-input100"></span>
             <span class="symbol-input100">
               <i class="fa fa-lock" aria-hidden="true"></i>
@@ -89,7 +101,7 @@
           </div>
 
           <div class="wrap-input100 validate-input" data-validate = "Senha requerida">
-            <input class="input100" type="password" name="senhaRep" placeholder="Repita a senha">
+            <input class="input100" type="password" name="senhaRep" placeholder="Repita a senha" required>
             <span class="focus-input100"></span>
             <span class="symbol-input100">
               <i class="fa fa-lock" aria-hidden="true"></i>
