@@ -38,7 +38,7 @@
 
 
 </head>
-<body onLoad='<?php echo $toast ? 'toastr.error("Usuário ou senha inválidos",)' : ''; ?>'>
+<body onLoad='<?php echo $toast ? 'toastr.error("Usuário ou senha inválidos.",)' : ''; ?>'>
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">

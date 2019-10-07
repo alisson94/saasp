@@ -26,7 +26,7 @@
         
         <link rel="icon" type="imagem/png" href="../img/icon.png">        
     </head>
-    <body onLoad='<?php echo $toast ? 'M.toast({html: "Relato feito com sucesso"})' : '' ?>'>
+    <body onLoad='<?php echo $toast ? 'M.toast({html: "Relato enviado ao orgão responsável!"})' : '' ?>'>
         <!--DROPS DO MENU-->
         <ul id="drop1" class="dropdown-content">
             <li><a class="grey-text text-darken-2 waves-effect" href="relatarProblemas.php">Relatar problema<i class='material-icons left'>add</i></a></li>
@@ -61,9 +61,11 @@
 
         <div class="container-center">
         <form class='form' action="../php/relatar.php" method="post" enctype="multipart/form-data">
-            <p class="title">Dados do problema encontrado: </p>
+            <p class="title"><b>Conte-nos sobre o problema</b></p>
             <div class="input-field">
+            <i class="material-icons prefix">card_travel</i>
                 <select name="orgao" required>
+                
                     <option value="" disabled selected>Orgão responsável por resolução: </option>
                     <option value="orgao1">Orgao1</option>
                     <option value="orgao2">Orgao2</option>
@@ -71,9 +73,13 @@
                 </select>
             </div>
             
-            <input type="text" placeholder='Descreva seu relato aqui' name="descricao" required>
+            <div class="input-field">
+                <i class="material-icons prefix">description</i>
+                <textarea id="textarea1" name="descricao" class="materialize-textarea" placeholder="Descreva o problema" required></textarea>
+            </div>
             
             <div class="input-field">
+                <i class="material-icons prefix">report</i>
                 <select name="gravidade" required>
                         <option value="" disabled selected>Gravidade: </option>
                         <option value="alta">Alta</option>
@@ -82,20 +88,24 @@
                 </select>
             </div>
 
+            <div class="input-field">
+                <i class="material-icons prefix">location_on</i>
+                <input type="text" name="local" placeholder='Onde se encontra o problema?' required>
+            </div>
 
 
-            <input type="text" name="local" placeholder='Onde se encontra o problema?' required>
-
-            <input type="text" class="datepicker" placeholder='Data'>
-            <input type="date" name="data" required>
+            <div class="input-field">
+                <i class="material-icons prefix">event</i>
+                <input type="date" name="data" required>
+            </div>
 
             <div class="file-field input-field">
                 <div class="btn teal darken-4">
                     <span>Imagem</span>
-                    <input type="file" name='imagem' required>
+                    <input type="file" name='imagem' required >
                 </div>
                 <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
+                    <input class="file-path validate" type="text" placeholder="Selecione uma imagem...">
                 </div>
             </div>
             <button class="btn waves-effect waves-light teal darken-4 right" type="submit" name="action">Enviar

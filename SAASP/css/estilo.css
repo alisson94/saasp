@@ -47,42 +47,25 @@ body, html {
 
 /* FORM */
 
-.form{
-  position: relative;
-  top: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 2px 2px 15px #aaa;
-  font-family: Poppins-Regular;
-  max-width: 450px;
-  padding: 20px;
-}
-
 .form .title{
   font-size: 20px;
-}
-
-input{
-  /*TIRA MATERIALIZE*/
-  border-bottom: none !important;
-  font-size: 20px !important;
-
-  background-color: #e6e6e6 !important;
-  border-radius: 20px !important;
-  padding-left: 10px !important;
-}
-
-input:focus{
-  /*TIRA MATERIALIZE*/
-  box-shadow: none !important;
+  text-align: center;
 }
 
 .input-field{
   margin-top: 0 !important;
   margin-bottom: 8px !important;
+
 }
 
-
+.form {
+  width: 450px;
+}
+@media only screen and (max-width: 400px) {
+  .form{
+    width: 320px;
+  }
+}
 /*BOX RELATOS*/
 
 .containerRelato{

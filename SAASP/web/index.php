@@ -28,7 +28,7 @@
         <li><a class="grey-text text-darken-2 waves-effect" href="meusRelatos.php">Meus relatos<i class='material-icons left'>list</i></a></li>
     </ul>
     <ul id="drop2" class="dropdown-content">
-        <li><a class="grey-text text-darken-2 waves-effect" href="editarPerfil.php">Editar perfil<i class='material-icons left'>edit</i></a></li>
+        <li><a class="grey-text text-darken-2 waves-effect" href="editarperfil.php">Editar perfil<i class='material-icons left'>edit</i></a></li>
         <li><a class="grey-text text-darken-2 waves-effect" href="../php/deslogar.php">Sair<i class='material-icons left'>undo</i></a></li>
     </ul>
     <!--MENU NAV-->
@@ -50,7 +50,7 @@
         <li><a href="relatarProblemas.php" class='waves-effect'>Relatar problema<i class='material-icons left'>add</i></a></li>
         <li><a href="meusRelatos.php" class='waves-effect'>Meus relatos<i class='material-icons left'>list</i></a></li>
         <li><div class="divider"></div></li>
-        <li><a href="editarPerfil.php" class='waves-effect'>Editar perfil<i class='material-icons left'>edit</i></a></li>
+        <li><a href="editarperfil.php" class='waves-effect'>Editar perfil<i class='material-icons left'>edit</i></a></li>
         <li><a href="../php/deslogar.php" class='waves-effect'>Sair<i class='material-icons left'>undo</i></a></li>
     </ul>
     
