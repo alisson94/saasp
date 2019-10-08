@@ -7,7 +7,7 @@
     $sql = "SELECT * FROM usuarios WHERE user = '$user'";
     $result = mysqli_query($con, $sql) or die("Erro ao se conectar ao servidor");
     $perfil = mysqli_fetch_assoc($result);
-    echo $perfil['nome'];
+
 ?>
 <html>
     <head>
@@ -43,7 +43,7 @@
             });
         </script>      
     </head>
-    <body onLoad='<?php echo $toast ? 'M.toast({html: "Relato enviado ao orgão responsável!"})' : '' ?>'>
+    <body>
         <!--DROPS DO MENU-->
         <ul id="drop1" class="dropdown-content">
             <li><a class="grey-text text-darken-2 waves-effect" href="relatarProblemas.php">Relatar problema<i class='material-icons left'>add</i></a></li>
@@ -60,8 +60,8 @@
                 <span id="title"  class="white-text flow-text hide-on-med-and-down">SAASP</span>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="index.php" class='waves-effect waves-light'>Home<i class='material-icons left'>home</i></a></li>
-                    <li><a href="" class="dropdown-trigger waves-effect waves-light" data-target="drop1">Relatos<i class='material-icons left'>assignment</i><i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a href="##" class="dropdown-trigger waves-effect waves-light" data-target="drop2">Perfil<i class='material-icons left'>person_pin</i><i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href="" class="dropdown-trigger waves-effect waves-light" data-target="drop1" >Relatos<i class='material-icons left'>assignment</i><i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href="#" class="dropdown-trigger waves-effect waves-light" data-target="drop2" >Perfil<i class='material-icons left'>person_pin</i><i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
                 <a  href="#" data-target="slide-out" class="sidenav-trigger btn-flat waves-effect waves-light"><i class="material-icons white-text">menu</i></a>
             </div>
@@ -80,31 +80,31 @@
         <form class='form' action="../php/editarPerfil.php" method="post" enctype="multipart/form-data">
         <p class="title"><b>Edite aqui o seu perfil</b></p>
             <div class="input-field">
-                <i class="material-icons prefix">location_on</i>
-                <input id="nomeC" type="text" name="nomeC" value=<?php echo $perfil['nome'] ?> required>
+                <i class="material-icons prefix">person</i>
+                <input id="nomeC" type="text" name="nomeC" value="<?php echo $perfil['nome'] ?>" required>
                 <label for="nomeC">Nome completo</label>
             </div>
 
             <div class="input-field">
-                <i class="material-icons prefix">location_on</i>
+                <i class="material-icons prefix">assignment_ind</i>
                 <input id="usuario" type="text" name="usuario" value=<?php echo $perfil['user'] ?> required >
                 <label for="usuario">Nome de usuário</label>
             </div>
 
             <div class="input-field">
-                <i class="material-icons prefix">location_on</i>
+                <i class="material-icons prefix">email</i>
                 <input id="email" type="email" name="email" value=<?php echo $perfil['email'] ?> required >
                 <label for="email">E-mail</label>
             </div>
 
             <div class="input-field">
-                <i class="material-icons prefix">location_on</i>
+                <i class="material-icons prefix">vpn_key</i>
                 <input id="senha" type="password" name="senha" value=<?php echo $perfil['senha'] ?> required>
                 <label for="senha">Senha</label>
             </div>
 
             <div class="input-field">
-                <i class="material-icons prefix">location_on</i>
+                <i class="material-icons prefix">vpn_key</i>
                 <input id="senhaRep" type="password" name="senhaRep" value=<?php echo $perfil['senha'] ?> required>
                 <label for="senhaRep">Repita a senha</label>
             </div>
