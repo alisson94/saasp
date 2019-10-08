@@ -27,7 +27,6 @@
         
         <link rel="icon" type="imagem/png" href="../img/icon.png">  
 
-        <script src="../js/jquery-3.3.1.min.js"></script>
         <link href="../css/toastr.css" rel="stylesheet">
         <script src="../js/toastr.js"></script>
 
