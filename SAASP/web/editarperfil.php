@@ -1,21 +1,13 @@
 <?php
     include '../php/protegePagina.php';
     include '../php/connect.php';
-
-    $toast;
-    if(isset($_SESSION['relatoFeito'])){
-        if($_SESSION['relatoFeito'] === true){
-        $toast = true;
-        $_SESSION['relatoFeito'] = false;
-        }
-    }
-
     
     $user = $_SESSION['login'];
 
     $sql = "SELECT * FROM usuarios WHERE user = '$user'";
     $result = mysqli_query($con, $sql) or die("Erro ao se conectar ao servidor");
     $perfil = mysqli_fetch_assoc($result);
+    echo $perfil['nome'];
 ?>
 <html>
     <head>
@@ -33,7 +25,23 @@
         <script src="../js/menu.js"></script>
         <script src="../js/materialize.min.js"></script>
         
-        <link rel="icon" type="imagem/png" href="../img/icon.png">        
+        <link rel="icon" type="imagem/png" href="../img/icon.png">  
+
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <link href="../css/toastr.css" rel="stylesheet">
+        <script src="../js/toastr.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('input[type=password][name=senhaRep]').on('change', function(){
+                    if(this.value != $('input[type=password][name=senha]').val()){
+                        toastr.error("Repita a senha corretamente");
+                        this.value = null;
+                        this.focus();
+                    }
+                });
+            });
+        </script>      
     </head>
     <body onLoad='<?php echo $toast ? 'M.toast({html: "Relato enviado ao orgão responsável!"})' : '' ?>'>
         <!--DROPS DO MENU-->
@@ -69,35 +77,35 @@
         </ul>
 
         <div class="container-center">
-        <form class='form' action="../php/cadastrar.php?editar=true" method="post" enctype="multipart/form-data">
+        <form class='form' action="../php/editarPerfil.php" method="post" enctype="multipart/form-data">
         <p class="title"><b>Edite aqui o seu perfil</b></p>
             <div class="input-field">
                 <i class="material-icons prefix">location_on</i>
-                <input id="nomeC" type="text" name="nomeC" value=<?php echo $perfil['nome'] ?>>
+                <input id="nomeC" type="text" name="nomeC" value=<?php echo $perfil['nome'] ?> required>
                 <label for="nomeC">Nome completo</label>
             </div>
 
             <div class="input-field">
                 <i class="material-icons prefix">location_on</i>
-                <input id="usuario" type="text" name="usuario" value=<?php echo $perfil['user'] ?> >
+                <input id="usuario" type="text" name="usuario" value=<?php echo $perfil['user'] ?> required >
                 <label for="usuario">Nome de usuário</label>
             </div>
 
             <div class="input-field">
                 <i class="material-icons prefix">location_on</i>
-                <input id="email" type="email" name="email" value=<?php echo $perfil['email'] ?> >
+                <input id="email" type="email" name="email" value=<?php echo $perfil['email'] ?> required >
                 <label for="email">E-mail</label>
             </div>
 
             <div class="input-field">
                 <i class="material-icons prefix">location_on</i>
-                <input id="senha" type="password" name="senha" value=<?php echo $perfil['senha'] ?>>
+                <input id="senha" type="password" name="senha" value=<?php echo $perfil['senha'] ?> required>
                 <label for="senha">Senha</label>
             </div>
 
             <div class="input-field">
                 <i class="material-icons prefix">location_on</i>
-                <input id="senhaRep" type="password" name="senhaRep" value=<?php echo $perfil['senha'] ?>>
+                <input id="senhaRep" type="password" name="senhaRep" value=<?php echo $perfil['senha'] ?> required>
                 <label for="senhaRep">Repita a senha</label>
             </div>
 
